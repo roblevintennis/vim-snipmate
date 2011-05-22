@@ -1,5 +1,27 @@
+# Singletone Pattern: Singleton.getInstance.method_name();
+snippet psing
+	var ${1:Singleton} = (function() {
+		var instance;
+		function init (){
+			${2:/*singleton code here*/}
+			return {
+				${3:method_name}: function() {
+					${4: /* code */}
+				};
+			};
+		};
+		return {
+			getInstance :function(){
+				if (!instance){
+					instance = init();
+				}
+				return instance; 
+			};
+		};
+	})();
+
 # Module Pattern
-snippet mod 
+snippet pmod 
 	var ${1:MYLIB} =
 	(function(${2:first_argument}) {
 		var ${3:private_var};
@@ -9,10 +31,10 @@ snippet mod
 		};
 
 		return {
-			${6:first_method}: function(${7:first_argument}) {
+			${6:method_name}: function(${7:first_argument}) {
 				${8:/* code */}
 			},
-			${9:second_method}: function(${10:first_argument}) {
+			${9:method_name}: function(${10:first_argument}) {
 				${11:/* code */}
 			}
 		};
