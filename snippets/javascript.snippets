@@ -1,3 +1,22 @@
+# Module Pattern
+snippet mod 
+	var ${1:MYLIB} =
+	(function(${2:first_argument}) {
+		var ${3:private_var};
+
+		function ${4:private_function_name} {
+			${5:/* code */}
+		};
+
+		return {
+			${6:first_method}: function(${7:first_argument}) {
+				${8:/* code */}
+			},
+			${9:second_method}: function(${10:first_argument}) {
+				${11:/* code */}
+			}
+		};
+	}());
 # Prototype
 snippet proto
 	${1:class_name}.prototype.${2:method_name} =
