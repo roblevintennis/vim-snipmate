@@ -1,5 +1,19 @@
-# Singletone Pattern: Singleton.getInstance.method_name();
-snippet psing
+# Strategy Pattern
+snippet pstrat
+	var ${1:Strategy} = (function() {
+		var strategy;
+		return {
+			inject: function (impl) {
+				this.strategy = impl;
+			},
+			${2:method_name}: function (${3:first_argument}) {
+				return this.strategy.$2($3);
+			}
+		};
+	})();
+
+# Singleton Pattern: Singleton.getInstance.method_name();
+snippet psingle
 	var ${1:Singleton} = (function() {
 		var instance;
 		function init (){
@@ -19,7 +33,6 @@ snippet psing
 			};
 		};
 	})();
-
 # Module Pattern
 snippet pmod 
 	var ${1:MYLIB} =
