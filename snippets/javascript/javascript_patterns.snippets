@@ -17,7 +17,7 @@ snippet psingle
 	var ${1:Singleton} = (function() {
 		var instance;
 		function init (){
-			${2:/*singleton code here*/}
+			${2:// singleton code here }
 			return {
 				${3:method_name}: function() {
 					${4: /* code */}
@@ -40,15 +40,15 @@ snippet pmod
 		var ${3:private_var};
 
 		function ${4:private_function_name} {
-			${5:/* code */}
+			${5:// code }
 		};
 
 		return {
 			${6:method_name}: function(${7:first_argument}) {
-				${8:/* code */}
+				${8:// code }
 			},
 			${9:method_name}: function(${10:first_argument}) {
-				${11:/* code */}
+				${11:// code }
 			}
 		};
 	}());
