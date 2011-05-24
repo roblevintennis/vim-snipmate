@@ -1,3 +1,61 @@
+# Observer Pattern
+snippet pobserver
+	var ${1:Publisher} = (function() {
+		var arrayObservers = [];
+		var idCounterState    = 1;
+		return {
+				// Registers a callback to recieve notifications of state changes
+				${2:register}: function(${3:callback}) { 
+					arrayObservers.push({"id": idCounterState, "cb": $3});
+						return idCounterState++;
+				},
+				// Returns true if able to find and remove the Observer; false otherwise
+				remove: function(${4: id}) { 
+					var len = arrayObservers.length,
+					${5:i}   = 0;
+					for( ; $5<len; $5++) {
+						if(arrayObservers[$5].id===$4) {
+							arrayObservers.splice($5, 1);
+							return true;
+						}
+					}
+					return false;
+				},
+				// Notifies all registeredbobservers of some change 
+				// via the callback that they originally registered with.
+				notifyObservers: function(${6:someChange}) {
+					var len = arrayObservers.length,
+					$5   = 0;
+					if(len>0) {
+						for( ; $5<len; $5++) {
+							if(typeof(arrayObservers[$5].cb)==="function") {
+								arrayObservers[$5].cb($6);
+							}
+						}
+					}
+				},
+				setStateNotification: function($6) {
+					this.notifyObservers($5);
+				}
+			};
+	})();
+# Observer Pattern
+snippet pstrat
+	var ${1:Strategy} = (function() {
+		var strategy;
+		return {
+			inject: function (impl) {
+				this.strategy = impl;
+			},
+			${2:method_name}: function (${3:first_argument}) {
+				return this.strategy.$2($3);
+			}
+		};
+	})();
+
+
+
+
 # Strategy Pattern
 snippet pstrat
 	var ${1:Strategy} = (function() {
